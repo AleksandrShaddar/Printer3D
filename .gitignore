@@ -1,5 +1,5 @@
 /.venv/
 /.idea/
-/Home_first_aid_kit/db.sqlite3
+/Printer3D/db.sqlite3
 __pycache__/
 media/
