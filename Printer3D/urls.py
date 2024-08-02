@@ -1,0 +1,28 @@
+"""
+URL configuration for Printer3D project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('item.urls')),
+    path('add_plastic/', include('plastic.urls')),
+    path('add_model/', include('item_model.urls')),
+    path('add_color/', include('item_color.urls')),
+    path('add_type/', include('item_type.urls')),
+    path('add_printer/', include('printer.urls')),
+]

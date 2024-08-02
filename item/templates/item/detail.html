@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Подробности детали
+{% endblock %}
+
+{% block content %}
+    <p>Тип: {{ item.type_item }}</p>
+    <p>Модель: {{ item.item_name }}</p>
+    <form method="POST">
+    {% csrf_token %}
+    <label for="size">Выберите типоразмер:</label>
+    <select name="size" id="size">
+        {% for size in sizes %}
+            <option value="{{ size }}">{{ size }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Подтвердить</button>
+    </form><br>
+    {% if print_time and print_mass %}
+        <p>Масса отпечатка: {{ print_mass }} гр.</p>
+        <p>Время печати: {{ print_time }} мин.</p>
+        <p>Артикул для заказа ({{ ddd }}): {{ article }}</p>
+        <p>Себестоимость: {{ cost }} руб.</p>
+        <p>Стоимость продажи: {{ final_cost }} руб.</p>
+    {% endif %}
+    <form method="GET" action="{% url 'main_view' %}">
+        <input type="submit" value="На главную">
+    </form>
+{% endblock %}

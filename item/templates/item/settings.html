@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <h1>Настройки</h1>
+    <h3>{{ message }}</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit">Сохранить</button>
+    </form><br>
+    <form method="GET" action="{% url 'add_type' %}">
+        <input type="submit" value="Добавить тип изделия">
+    </form><br>
+    <form method="GET" action="{% url 'add_model' %}">
+        <input type="submit" value="Добавить модель изделия">
+    </form><br>
+    <form method="GET" action="{% url 'add_color' %}">
+        <input type="submit" value="Добавить цвет">
+    </form><br>
+    <form method="GET" action="{% url 'add_printer' %}">
+        <input type="submit" value="Добавить принтер">
+    </form><br>
+    <form method="GET" action="{% url 'add_plastic' %}">
+        <input type="submit" value="Добавить пластик">
+    </form><br>
+    <form method="GET" action="{% url 'add_item' %}">
+        <input type="submit" value="Добавить изделие">
+    </form><br>
+    <form method="GET" action="{% url 'main_view' %}">
+        <input type="submit" value="На главную">
+    </form>
+{% endblock %}

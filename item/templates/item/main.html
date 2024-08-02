@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <h2>
+    <a href="{% url 'settings' %}">Настройки</a>
+    </h2>
+    В каталоге представлено {{ quantity }} изделия(й):
+    {% for item in unique_items_list %}
+    <li>
+        {{ item.type_item }}:
+        <a href="{% url 'detail' item.id %}">{{ item.item_name }}</a>
+    </li>
+    {% endfor %}
+{% endblock %}
